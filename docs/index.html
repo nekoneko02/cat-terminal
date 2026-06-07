@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Cat Terminal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+  <div id="header">🐱 Cat Terminal</div>
+  <div id="main">
+    <div id="terminal">
+      <div id="output"></div>
+      <input id="hidden-input" type="text" autocomplete="off" spellcheck="false">
+    </div>
+    <div id="sidebar">
+      <div id="sidebar-header">FILES</div>
+      <div id="file-tree"></div>
+    </div>
+  </div>
+</div>
+
+<div id="exit-screen">
+  <div class="exit-cat">₍˄. .˄₎</div>
+  <div class="exit-msg">...ターミナルを終了しました</div>
+  <div class="exit-hint">Press any key to restart</div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
