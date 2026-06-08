@@ -33,6 +33,13 @@ html, body {
   color: var(--yellow);
   flex-shrink: 0;
   user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: 20px;
+  display: block;
 }
 
 #main { display: flex; flex: 1; min-height: 0; }

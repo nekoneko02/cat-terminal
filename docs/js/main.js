@@ -16,6 +16,10 @@ const exitScreen  = document.getElementById('exit-screen');
 
 let busy = false;
 
+const track = (eventName, params = {}) => {
+  if (typeof window.gtag === 'function') window.gtag('event', eventName, params);
+};
+
 // ── 入力処理 ───────────────────────────────────────
 terminalEl.addEventListener('click', () => hiddenInput.focus());
 
@@ -42,16 +46,19 @@ hiddenInput.addEventListener('keydown', async e => {
   busy = true;
 
   const [name, ...args] = raw.split(/\s+/);
-  const handler = COMMANDS[name.toLowerCase()];
+  const cmdName = name.toLowerCase();
+  const handler = COMMANDS[cmdName];
 
   if (handler) {
     await handler(args);
+    track('command', { command_name: cmdName });
   } else {
     addLine();
     addLine('(=ΦωΦ=) シャー！', 'cat');
     addLine();
     addLine('ERROR: コマンドは存在しません。ねこ様はお怒りです。', 'error');
     addLine();
+    track('command_unknown', { command_name: cmdName });
   }
 
   busy = false;
@@ -70,6 +77,7 @@ document.addEventListener('keydown', e => {
   if (MODIFIER_KEYS.has(e.key)) return;
 
   exitScreen.classList.remove('show');
+  track('terminal_restart');
   reset();
   renderFileTree();
   document.getElementById('output').innerHTML = '';
