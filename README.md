@@ -2,7 +2,7 @@
 
 ブラウザで動くターミナルシミュレーター。ただし、コマンドを処理するのはねこです。
 
-**[▶ 今すぐ遊ぶ](https://takaf.github.io/cat-terminal/)**
+**[▶ 今すぐ遊ぶ](https://cat-terminal.neko-engineer.com/)**
 
 ---
 
